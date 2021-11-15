@@ -11,12 +11,6 @@ password_hashmap = {
     '2' : "Strong" 
 }
 
-def getTokens(inputString): #custom tokenizer. ours tokens are characters rather than full words
-	tokens = []
-	for i in inputString:
-		tokens.append(i)
-	return tokens
-
 def password_string_generator(length):
     result = ''.join((random.choice(string.ascii_letters) for x in range(length)))
     for _ in range(length):
@@ -25,7 +19,7 @@ def password_string_generator(length):
     result = ''.join(random.sample(result, len(result)))
     return result
 
-vectorizer = joblib.load("vectorizer.pkl")
+vectorizer = joblib.load("vectorizer1.pkl")
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
