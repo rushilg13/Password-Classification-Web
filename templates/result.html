@@ -4,16 +4,110 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Prediction</title>
+    <title>Result</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
 </head>
 
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Cabin:400);
+    body {
+        overflow: hidden;
+        background: #151515;
+    }
+    
+    .parentDiv {
+        position: absolute;
+        width: 100%;
+        background: #222;
+        background: linear-gradient(#333, #222);
+        color: #888;
+        font-family: 'Cabin', helvetica, arial, sans-serif;
+    }
+    
+    .nav {
+        text-align: center;
+    }
+    
+    ul li {
+        display: inline-block;
+        padding: 0 5px;
+    }
+    
+    .sec li:hover,
+    .sec li:focus,
+    .active {
+        color: #5f5;
+        outline: none;
+    }
+    
+    .hyper {
+        text-decoration: none;
+        color: #888;
+    }
+    
+    .sec {
+        background: #151515;
+        height: 100%;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .sec:before,
+    .sec:after {
+        content: '';
+        display: block;
+        height: 1px;
+        left: 50%;
+        margin: 0 0 0 -400px;
+        position: absolute;
+        width: 800px;
+    }
+    
+    .sec:before {
+        background: #444;
+        background: linear-gradient(left, #151515, #444, #151515);
+        top: 192px;
+    }
+    
+    .sec:after {
+        background: #000;
+        background: linear-gradient(left, #151515, #000, #151515);
+        top: 191px;
+    }
+    
+    .result {
+        margin-top: 200px;
+        color: #5f5;
+        font-family: 'Cabin', helvetica, arial, sans-serif;
+        font-size: larger;
+    }
+</style>
+
 <body>
-    <h1>
-        {{prediction}}
-    </h1>
+    <section class="sec">
+        <div class="parentDiv">
+            <div class="nav">
+                <ul>
+                    <a class="hyper" href="/">
+                        <li class="active">Home</li>
+                    </a>
+                    <a class="hyper" href="/generate">
+                        <li>Generate Password</li>
+                    </a>
+                    <a class="hyper" href="/about">
+                        <li>About Password Strength</li>
+                    </a>
+                    <a class="hyper" href="/how">
+                        <li>How it works?</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <div class="result">
+            Strength of the Entered password is: {{prediction}}
+        </div>
+    </section>
 </body>
 
 </html>

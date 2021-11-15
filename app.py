@@ -70,5 +70,13 @@ def view_generated():
     generated_password = passwords[-1]
     return render_template("generate.html", generated_password = generated_password)
 
+@app.route("/how", methods=['GET'])
+def how():
+    return render_template("how.html")
+
+@app.route("/about", methods=['GET'])
+def about():
+    return render_template("about.html")
+
 if __name__=="__main__":
     app.run(debug=True)

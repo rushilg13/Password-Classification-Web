@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Generate Password</title>
+    <title>About Password Strength</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 
@@ -53,17 +53,6 @@
         width: 100%;
     }
     
-    .sec:before,
-    .sec:after {
-        content: '';
-        display: block;
-        height: 1px;
-        left: 50%;
-        margin: 0 0 0 -400px;
-        position: absolute;
-        width: 800px;
-    }
-    
     .sec:before {
         background: #444;
         background: linear-gradient(left, #151515, #444, #151515);
@@ -82,6 +71,13 @@
         font-family: 'Cabin', helvetica, arial, sans-serif;
         font-size: larger;
     }
+    
+    h1 {
+        margin-top: 200px;
+        color: #5f5;
+        font-family: 'Cabin', helvetica, arial, sans-serif;
+        font-size: larger;
+    }
 </style>
 
 <body>
@@ -93,10 +89,10 @@
                         <li>Home</li>
                     </a>
                     <a class="hyper" href="/generate">
-                        <li class="active">Generate Password</li>
+                        <li>Generate Password</li>
                     </a>
                     <a class="hyper" href="/about">
-                        <li>About Password Strength</li>
+                        <li class="active">About Password Strength</li>
                     </a>
                     <a class="hyper" href="/how">
                         <li>How it works?</li>
@@ -105,7 +101,13 @@
             </div>
         </div>
         <div class="result">
-            Your Unique Strong Password is: {{generated_password}}
+            <h1>About Password Strength</h1>
+            Password Strength depends on variety of factors but 2 main factors are length and entropy. Entropy is considered as degree of randomness. It means that given a character from the password, is it possible to guess the next character. Higher the entropy,
+            stronger the password. Length of the password also greatly determines the strength of the password. Longer the password, longer it will take to crack ift if we run a brute force algorihtm. Thus the entered passwords are checked for both of
+            these features.
+            <br> <br> Our password generator module generates random string of uppercase letters, lowercase letters, digits and punctuation marks and feed them into the mentioned machine learning model. Only if the generated password is strong, we log
+            that password into a text file so that we can generate Unique passwords each time. As the password generator module generates random string of uppercase letters, lowercase letters, digits and punctuation marks, the probability of finding the
+            exact same string is 1/(76^15). Thus this ofefrs adequate entropy as well as length to make the password secure.
         </div>
     </section>
 </body>

@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Generate Password</title>
+    <title>How it Works?</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 
@@ -53,17 +53,6 @@
         width: 100%;
     }
     
-    .sec:before,
-    .sec:after {
-        content: '';
-        display: block;
-        height: 1px;
-        left: 50%;
-        margin: 0 0 0 -400px;
-        position: absolute;
-        width: 800px;
-    }
-    
     .sec:before {
         background: #444;
         background: linear-gradient(left, #151515, #444, #151515);
@@ -82,6 +71,13 @@
         font-family: 'Cabin', helvetica, arial, sans-serif;
         font-size: larger;
     }
+    
+    h1 {
+        margin-top: 200px;
+        color: #5f5;
+        font-family: 'Cabin', helvetica, arial, sans-serif;
+        font-size: larger;
+    }
 </style>
 
 <body>
@@ -93,19 +89,24 @@
                         <li>Home</li>
                     </a>
                     <a class="hyper" href="/generate">
-                        <li class="active">Generate Password</li>
+                        <li>Generate Password</li>
                     </a>
                     <a class="hyper" href="/about">
                         <li>About Password Strength</li>
                     </a>
                     <a class="hyper" href="/how">
-                        <li>How it works?</li>
+                        <li class="active">How it works?</li>
                     </a>
                 </ul>
             </div>
         </div>
         <div class="result">
-            Your Unique Strong Password is: {{generated_password}}
+            <h1>How our Website works?</h1>
+            Our Website uses Machine Learning and Natural Language Processing techniques to determine the strength of the passwords that user wants to check the stregth of. We convert the entered string into vectors and feed them to trained Machine Learning models
+            and get the result as the strength of the entered password. We compared different machine learning algorithms and tested with hyperparameter tuning and compared their accuracies. We realised that, Decision Tree offers the best accuracy and
+            hence we are using that algorihtm in the background. The Website uses pickled Machine learning model and unpacks them in our Python based Flask Backend. We process the string and send the data to the frontend.
+            <br> <br> Our password generator module generates random string of uppercase letters, lowercase letters, digits and punctuation marks and feed them into the mentioned machine learning model. Only if the generated password is strong, we log
+            that password into a text file so that we can generate Unique passwords each time.
         </div>
     </section>
 </body>
