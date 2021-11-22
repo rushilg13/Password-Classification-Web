@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, jsonify
 import joblib
 import random
 import string
@@ -63,6 +63,36 @@ def view_generated():
         passwords = f.readlines()
     generated_password = passwords[-1]
     return render_template("generate.html", generated_password = generated_password)
+
+@app.route("/api/<string:password>", methods=['GET'])
+def api_get(password):
+    pwd = password
+    arr = []
+    arr.append(pwd)
+    vec_predict = vectorizer.transform(arr)
+    model = joblib.load("decisionTreeModel.pkl")
+    prediction = model.predict(vec_predict)
+    print("Strength is " + prediction)
+    return jsonify({"Strength": password_hashmap[prediction[0]]})
+
+@app.route("/api", methods=['POST'])
+def api_post():
+    if request.method == "POST":
+        print(request.args.get('password'))
+        pwd = request.args.get('password')
+        arr = []
+        arr.append(pwd)
+        vec_predict = vectorizer.transform(arr)
+        model = joblib.load("decisionTreeModel.pkl")
+        prediction = model.predict(vec_predict)
+        print("Strength is " + prediction)
+        return jsonify({"Strength": password_hashmap[prediction[0]]})
+    else:
+        return jsonify({"Message" : "This should be a POST request"})
+
+@app.route("/apis", methods=['GET'])
+def api():
+    return render_template("api.html")
 
 @app.route("/how", methods=['GET'])
 def how():
