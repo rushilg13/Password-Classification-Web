@@ -41,7 +41,7 @@ def generate():
     prediction = [-1]
     arr = []
     while int(prediction[0]) != 2:
-        generated_password = password_string_generator(5)
+        generated_password = password_string_generator(3)
         with open('generated_passwords.txt') as f:
             passwords = f.readlines()
             if generated_password in passwords:
