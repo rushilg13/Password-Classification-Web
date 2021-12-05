@@ -4,7 +4,7 @@
 https://password-strength-classify.herokuapp.com/
 
 # Endpoints
-<b> https://documenter.getpostman.com/view/16298894/UUy7cQDg </b>
+<b> https://documenter.getpostman.com/view/16298894/UVJhDaYD</b>
 <ol>
   <li> POST https://password-strength-classify.herokuapp.com/api?password=:password </li>
   <li> GET https://password-strength-classify.herokuapp.com/api/:password </li>
