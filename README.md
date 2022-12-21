@@ -27,3 +27,4 @@ Check <br>
 2. pip install -r requirements.txt
 3. python app.py
 4. Go to localhost:5000
+5. Have Fun!
